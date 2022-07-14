@@ -15,6 +15,7 @@
 		1E677F54287FF75B00C822EE /* MusinsaAssignmentAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E677F53287FF75B00C822EE /* MusinsaAssignmentAppTests.swift */; };
 		1E677F5E287FF75B00C822EE /* MusinsaAssignmentAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E677F5D287FF75B00C822EE /* MusinsaAssignmentAppUITests.swift */; };
 		1E677F60287FF75B00C822EE /* MusinsaAssignmentAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E677F5F287FF75B00C822EE /* MusinsaAssignmentAppUITestsLaunchTests.swift */; };
+		1E677F71287FF8ED00C822EE /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E677F70287FF8ED00C822EE /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		1E677F59287FF75B00C822EE /* MusinsaAssignmentAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusinsaAssignmentAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E677F5D287FF75B00C822EE /* MusinsaAssignmentAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusinsaAssignmentAppUITests.swift; sourceTree = "<group>"; };
 		1E677F5F287FF75B00C822EE /* MusinsaAssignmentAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusinsaAssignmentAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1E677F70287FF8ED00C822EE /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +102,6 @@
 				1E677F4A287FF75B00C822EE /* Info.plist */,
 				1E677F6C287FF7DB00C822EE /* Resource */,
 				1E677F6D287FF7E200C822EE /* Source */,
-				1E677F40287FF75A00C822EE /* ViewController.swift */,
 			);
 			path = MusinsaAssignmentApp;
 			sourceTree = "<group>";
@@ -134,7 +135,9 @@
 		1E677F6D287FF7E200C822EE /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				1E677F72287FF8F700C822EE /* Support */,
 				1E677F6E287FF7F700C822EE /* LifeCycle */,
+				1E677F6F287FF88F00C822EE /* Scene */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -146,6 +149,22 @@
 				1E677F3E287FF75A00C822EE /* SceneDelegate.swift */,
 			);
 			path = LifeCycle;
+			sourceTree = "<group>";
+		};
+		1E677F6F287FF88F00C822EE /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				1E677F40287FF75A00C822EE /* ViewController.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		1E677F72287FF8F700C822EE /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				1E677F70287FF8ED00C822EE /* Observable.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E677F71287FF8ED00C822EE /* Observable.swift in Sources */,
 				1E677F41287FF75A00C822EE /* ViewController.swift in Sources */,
 				1E677F3D287FF75A00C822EE /* AppDelegate.swift in Sources */,
 				1E677F3F287FF75A00C822EE /* SceneDelegate.swift in Sources */,
