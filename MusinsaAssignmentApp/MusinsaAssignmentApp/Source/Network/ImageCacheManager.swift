@@ -7,11 +7,6 @@
 
 import UIKit
 
-enum ImageNetworkError: Error {
-    case errorDetected
-    case invalidFileLocation
-}
-
 final class ImageCacheManager {
     static let shared = ImageCacheManager()
     private let memoryCache = NSCache<NSString, UIImage>()
