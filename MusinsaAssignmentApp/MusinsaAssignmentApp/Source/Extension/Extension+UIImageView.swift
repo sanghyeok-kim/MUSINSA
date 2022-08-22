@@ -5,7 +5,7 @@
 //  Created by 김상혁 on 2022/08/22.
 //
 
-import Foundation
+import UIKit
 
 extension UIImageView {
     func setImageWithCaching(from url: URL) {
