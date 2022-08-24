@@ -8,11 +8,11 @@
 import Foundation
 
 struct Entity: Decodable {
-    let data: [Datum]
+    let data: [SectionData]
 }
 
 extension Entity {
-    struct Datum: Decodable {
+    struct SectionData: Decodable {
         let contents: Contents
         let header: Header?
         let footer: Footer?
