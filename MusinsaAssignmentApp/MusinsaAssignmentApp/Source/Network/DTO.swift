@@ -7,17 +7,17 @@
 
 import Foundation
 
-struct ProductDTO {
-    let linkURL: URL?
-    let thumbnailURL: URL?
+struct ProductDTO: ContentDTO {
+    let linkUrl: URL?
+    let thumbnailUrl: URL?
     let brandName: String
     let price: String
     let saleRate: String?
     let hasCoupon: Bool
     
     init(product: Product) {
-        self.linkURL = URL(string: product.linkURL)
-        self.thumbnailURL = URL(string: product.thumbnailURL)
+        self.linkUrl = URL(string: product.linkURL)
+        self.thumbnailUrl = URL(string: product.thumbnailURL)
         self.brandName = product.brandName.rawValue
         self.price = product.price.toFormattedWonString()
         self.saleRate = product.saleRate == 0 ? nil : "\(product.saleRate)%"
@@ -25,44 +25,44 @@ struct ProductDTO {
     }
 }
 
-struct BannerDTO {
-    let linkURL: URL?
-    let thumbnailURL: URL?
+struct BannerDTO: ContentDTO {
+    let linkUrl: URL?
+    let thumbnailUrl: URL?
     let title: String
     let description: String
     let keyword: String
     
     init(banner: Banner) {
-        self.linkURL = URL(string: banner.linkURL)
-        self.thumbnailURL = URL(string: banner.thumbnailURL)
+        self.linkUrl = URL(string: banner.linkURL)
+        self.thumbnailUrl = URL(string: banner.thumbnailURL)
         self.title = banner.title
         self.description = banner.description
         self.keyword = banner.keyword
     }
 }
 
-struct StyleDTO {
-    let linkURL: URL?
-    let thumbnailURL: URL?
+struct StyleDTO: ContentDTO {
+    let linkUrl: URL?
+    let thumbnailUrl: URL?
     
     init(style: Style) {
-        self.linkURL = URL(string: style.linkURL)
-        self.thumbnailURL = URL(string: style.thumbnailURL)
+        self.linkUrl = URL(string: style.linkURL)
+        self.thumbnailUrl = URL(string: style.thumbnailURL)
     }
 }
 
 struct HeaderDTO {
     let title: String
-    var iconURL: URL? = nil
-    var linkURL: URL? = nil
+    var iconUrl: URL? = nil
+    var linkUrl: URL? = nil
     
     init(header: Header) {
         self.title = header.title
         if let headerIconUrl = header.iconURL {
-            self.iconURL = URL(string: headerIconUrl)
+            self.iconUrl = URL(string: headerIconUrl)
         }
         if let headerlinkUrl = header.linkURL {
-            self.linkURL = URL(string: headerlinkUrl)
+            self.linkUrl = URL(string: headerlinkUrl)
         }
     }
 }
