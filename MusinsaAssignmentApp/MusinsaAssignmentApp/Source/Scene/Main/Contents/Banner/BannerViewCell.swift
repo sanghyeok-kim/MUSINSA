@@ -8,6 +8,9 @@
 import UIKit
 
 final class BannerViewCell: UICollectionViewCell, View {
+    
+    private var disposeBag = DisposeBag()
+    
     private lazy var thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -49,14 +52,14 @@ final class BannerViewCell: UICollectionViewCell, View {
     
     func bind(to viewModel: BannerCellViewModel) {
         viewModel.state.loadedBanner.bind { [weak self] bannerDTO in
-            guard let self = self else { return }
-            guard let thumbnailUrl = bannerDTO.thumbnailURL else { return }
-            self.thumbnailImageView.setImageWithCaching(from: thumbnailUrl)
+            guard let thumbnailUrl = bannerDTO.thumbnailUrl else { return }
+            self?.thumbnailImageView.setImageWithCaching(from: thumbnailUrl)
 //            guard let linkUrl = bannerDTO.linkURL else { return }
-            self.keywordLabel.text = bannerDTO.keyword
-            self.titleLabel.text = bannerDTO.title
-            self.descriptionLabel.text = bannerDTO.description
+            self?.keywordLabel.text = bannerDTO.keyword
+            self?.titleLabel.text = bannerDTO.title
+            self?.descriptionLabel.text = bannerDTO.description
         }
+        .disposed(by: disposeBag)
         
         viewModel.action.loadBanner.accept(())
     }
@@ -69,6 +72,11 @@ final class BannerViewCell: UICollectionViewCell, View {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
     }
     
     private func layout() {
