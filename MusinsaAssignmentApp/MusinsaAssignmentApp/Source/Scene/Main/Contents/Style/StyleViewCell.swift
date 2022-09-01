@@ -8,6 +8,10 @@
 import UIKit
 
 class StyleViewCell: UICollectionViewCell, View {
+    
+    private var disposeBag = DisposeBag()
+    private lazy var button = UIButton()
+    
     private let thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -25,25 +29,39 @@ class StyleViewCell: UICollectionViewCell, View {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
+    
     func bind(to viewModel: StyleCellViewModel) {
+        defer { viewModel.action.loadStyle.accept(()) }
+        
         viewModel.state.loadedStyleDTO.bind { [weak self] styleDTO in
-            guard let self = self else { return }
-            guard let thumbnailUrl = styleDTO.thumbnailURL else { return }
-            self.thumbnailImageView.setImageWithCaching(from: thumbnailUrl)
-//            guard let imageUrl = URL(string: urlString) else { return }
-//            Task {
-//                self.thumbnailImageView.image = await self.imageManager.loadImage(url: imageUrl)
-//            }
+            guard let thumbnailUrl = styleDTO.thumbnailUrl else { return }
+            self?.thumbnailImageView.setImageWithCaching(from: thumbnailUrl)
         }
-        viewModel.action.loadStyle.accept(())
+        .disposed(by: disposeBag)
+        
+        button.addAction(UIAction(handler: { _ in
+            viewModel.action.cellTapped.accept(())
+        }), for: .touchUpInside)
     }
     
     private func layout() {
         addSubview(thumbnailImageView)
+        addSubview(button)
+        
         thumbnailImageView.translatesAutoresizingMaskIntoConstraints = false
         thumbnailImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         thumbnailImageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         thumbnailImageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         thumbnailImageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        button.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        button.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        button.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
     }
 }
