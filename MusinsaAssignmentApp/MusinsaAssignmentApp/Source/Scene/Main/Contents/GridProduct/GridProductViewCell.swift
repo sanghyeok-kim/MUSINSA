@@ -8,7 +8,10 @@
 import UIKit
 
 final class GridProductViewCell: UICollectionViewCell, View {
+    
+    private var disposeBag = DisposeBag()
     private lazy var productView = ProductView()
+    private lazy var button = UIButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,36 +24,38 @@ final class GridProductViewCell: UICollectionViewCell, View {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
+    
     func bind(to viewModel: GridProductCellViewModel) {
-        viewModel.state.loadedProduct.bind { [weak self] productDTO in
-            guard let self = self else { return }
-            self.productView.configure(with: productDTO)
-        }
+        defer { viewModel.action.loadProduct.accept(()) }
         
-        viewModel.action.loadProduct.accept(())
+        viewModel.state.loadedProduct.bind { [weak self] productDTO in
+            self?.productView.configure(with: productDTO)
+        }
+        .disposed(by: disposeBag)
+        
+        button.addAction(UIAction(handler: { _ in
+            viewModel.action.cellTapped.accept(())
+        }), for: .touchUpInside)
     }
     
     private func layout() {
         addSubview(productView)
+        addSubview(button)
         
         productView.translatesAutoresizingMaskIntoConstraints = false
         productView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         productView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         productView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         productView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        button.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        button.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        button.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
     }
 }
-
-//class ScaledHeightImageView: UIImageView {
-//    override var intrinsicContentSize: CGSize {
-//        guard let myImage = self.image else { return
-//            CGSize(width: -1.0, height: -1.0)
-//        }
-//        let myImageWidth = myImage.size.width
-//        let myImageHeight = myImage.size.height
-//        let myViewWidth = self.frame.size.width
-//        let ratio = myViewWidth / myImageWidth
-//        let scaledHeight = myImageHeight * ratio
-//        return CGSize(width: myViewWidth, height: scaledHeight)
-//    }
-//}
