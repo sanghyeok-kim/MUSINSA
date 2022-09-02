@@ -9,7 +9,7 @@ import UIKit
 
 extension UIImageView {
     func setImageWithCaching(from url: URL) {
-        ImageCacheManager.shared.getImage(from: url) { result in
+        ImageCacheManager.shared.fetchImage(from: url) { result in
             switch result {
             case .success(let image):
                 DispatchQueue.main.async { self.image = image }
