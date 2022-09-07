@@ -8,6 +8,7 @@
 import UIKit
 
 final class RoundPaddingLabel: UILabel {
+    
     private var padding = UIEdgeInsets.zero
     
     convenience init(padding: UIEdgeInsets) {
