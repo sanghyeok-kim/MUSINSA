@@ -8,19 +8,17 @@
 import Foundation
 
 protocol Disposable {
-    func disposed(by disposeBag: DisposeBag)
     func dispose()
+    func disposed(by disposeBag: DisposeBag)
 }
 
 final class PublishRelay<T>: Disposable {
     typealias BindElement = (T) -> Void
     
     private var binders: [BindElement] = []
-//    var binders: [BindElement] = []
     
     func bind(onNext: @escaping BindElement) -> Disposable {
         binders.append(onNext)
-//        print(binders)
         return self
     }
     
@@ -28,42 +26,42 @@ final class PublishRelay<T>: Disposable {
         binders.forEach {
             $0(value)
         }
-    }
-    
-    func disposed(by bag: DisposeBag) {
-        bag.insert(self)
     }
     
     func dispose() {
         binders.removeAll()
     }
+    
+    func disposed(by bag: DisposeBag) {
+        bag.insert(self)
+    }
 }
 
 final class BehaviorRelay<T>: Disposable {
     typealias BindElement = (T) -> Void
-    
+
     private var binders: [BindElement] = []
     var value: T
-    
+
     init(value: T) {
         self.value = value
     }
-    
+
     func bind(onNext: @escaping BindElement) -> Disposable {
         binders.append(onNext)
         return self
     }
-    
+
     func accept(_ value: T) {
         binders.forEach {
             $0(value)
         }
     }
-    
+
     func disposed(by disposeBag: DisposeBag) {
         disposeBag.insert(self)
     }
-    
+
     func dispose() {
         binders.removeAll()
     }
