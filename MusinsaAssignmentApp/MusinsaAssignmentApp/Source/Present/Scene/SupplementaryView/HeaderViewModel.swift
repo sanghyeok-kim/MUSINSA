@@ -23,10 +23,10 @@ final class HeaderViewModel: ViewModel {
     
     private let disposeBag = DisposeBag()
     
-    init?(header: HeaderDTO?) {
+    init?(header: HeaderEntity?) {
         guard let header = header else { return }
         action.loadData.bind { [weak self] in
-            self?.state.loadedData.accept(HeaderEntity(header: header))
+            self?.state.loadedData.accept(header)
         }
         .disposed(by: disposeBag)
     }

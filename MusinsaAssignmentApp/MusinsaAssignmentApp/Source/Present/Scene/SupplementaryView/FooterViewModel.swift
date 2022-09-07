@@ -8,21 +8,25 @@
 import Foundation
 
 final class FooterViewModel: ViewModel {
+    
     struct Action {
-        let loadFooter = Observable<Void>()
+        let loadFooter = PublishRelay<Void>()
     }
     
     struct State {
-        let loadedFooter = Observable<FooterDTO>()
+        let loadedFooter = PublishRelay<FooterEntity>()
     }
     
     let action = Action()
     let state = State()
+    private let disposeBag = DisposeBag()
     
-    init(footer: Footer) {
+    init?(footer: FooterEntity?) {
+        guard let footer = footer else { return }
+
         action.loadFooter.bind { [weak self] in
-            guard let self = self else { return }
-//            self.loadedFooter.accept(FooterDTO(footer: footer))
+            self?.state.loadedFooter.accept(footer)
         }
+        .disposed(by: disposeBag)
     }
 }
