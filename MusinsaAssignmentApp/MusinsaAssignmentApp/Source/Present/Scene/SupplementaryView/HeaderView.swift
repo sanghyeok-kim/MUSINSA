@@ -28,9 +28,7 @@ final class HeaderView: UICollectionReusableView, View {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 4
-        [iconImageView, titleLabel].forEach {
-            stackView.addArrangedSubview($0)
-        }
+        stackView.addArrangedSubviews([iconImageView, titleLabel])
         return stackView
     }()
     
