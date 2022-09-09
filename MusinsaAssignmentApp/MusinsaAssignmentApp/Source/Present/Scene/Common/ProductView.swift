@@ -49,9 +49,7 @@ final class ProductView: UIView {
         stackView.axis = .horizontal
 //        stackView.spacing = 1
         stackView.distribution = .equalSpacing
-        [priceLabel, saleRateLabel, couponLabel].forEach {
-            stackView.addArrangedSubview($0)
-        }
+        stackView.addArrangedSubviews([priceLabel, saleRateLabel, couponLabel])
         return stackView
     }()
     
@@ -82,9 +80,7 @@ final class ProductView: UIView {
     }
     
     private func layout() {
-        addSubview(thumbnailImageView)
-        addSubview(brandNameLabel)
-        addSubview(productSaleStackView)
+        addSubviews([thumbnailImageView, brandNameLabel, productSaleStackView])
         
         thumbnailImageView.translatesAutoresizingMaskIntoConstraints = false
         thumbnailImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
