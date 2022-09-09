@@ -1,5 +1,5 @@
 //
-//  ScrollProductViewCell.swift
+//  GridProductViewCell.swift
 //  MusinsaAssignmentApp
 //
 //  Created by 김상혁 on 2022/07/18.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ScrollProductViewCell: UICollectionViewCell, View {
+final class GridProductViewCell: UICollectionViewCell, View {
     
     private var disposeBag = DisposeBag()
     private lazy var productView = ProductView()
@@ -15,8 +15,8 @@ final class ScrollProductViewCell: UICollectionViewCell, View {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .systemGray
         layout()
+        backgroundColor = .systemGray
     }
     
     @available(*, unavailable)
@@ -27,24 +27,24 @@ final class ScrollProductViewCell: UICollectionViewCell, View {
     override func prepareForReuse() {
         super.prepareForReuse()
         disposeBag = DisposeBag()
+        button.removeAction(identifiedBy: .cellTapped, for: .touchUpInside)
     }
     
-    func bind(to viewModel: ScrollProductCellViewModel) {
+    func bind(to viewModel: GridProductCellViewModel) {
         defer { viewModel.action.loadProduct.accept(()) }
         
-        viewModel.state.loadedProductDTO.bind { [weak self] productDTO in
-            self?.productView.configure(with: productDTO)
+        viewModel.state.loadedProduct.bind { [weak self] productEntiy in
+            self?.productView.configure(with: productEntiy)
         }
         .disposed(by: disposeBag)
         
-        button.addAction(UIAction(handler: { _ in
+        button.addAction(UIAction(identifier: .cellTapped, handler: { _ in
             viewModel.action.cellTapped.accept(())
         }), for: .touchUpInside)
     }
     
     private func layout() {
-        addSubview(productView)
-        addSubview(button)
+        addSubviews([productView, button])
         
         productView.translatesAutoresizingMaskIntoConstraints = false
         productView.topAnchor.constraint(equalTo: topAnchor).isActive = true

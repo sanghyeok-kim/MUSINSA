@@ -15,8 +15,8 @@ final class GridProductCellViewModel: ViewModel {
     }
     
     struct State {
-        let loadedProduct = PublishRelay<ProductDTO>()
-        let tappedProduct = PublishRelay<Linkable>()
+        let loadedProduct = PublishRelay<ProductEntity>()
+        let tappedProduct = PublishRelay<Tappable>()
     }
     
     let action = Action()
@@ -24,14 +24,14 @@ final class GridProductCellViewModel: ViewModel {
     
     private let disposeBag = DisposeBag()
     
-    init(product: Product) {
+    init(productEntity: ProductEntity) {
         self.action.loadProduct.bind { [weak self] in
-            self?.state.loadedProduct.accept(ProductDTO(product: product))
+            self?.state.loadedProduct.accept(productEntity)
         }
         .disposed(by: disposeBag)
         
         self.action.cellTapped.bind { [weak self] in
-            self?.state.tappedProduct.accept(product)
+            self?.state.tappedProduct.accept(productEntity)
         }
         .disposed(by: disposeBag)
     }

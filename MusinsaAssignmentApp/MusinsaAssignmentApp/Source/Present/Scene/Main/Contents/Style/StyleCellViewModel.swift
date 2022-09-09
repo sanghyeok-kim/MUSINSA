@@ -1,5 +1,5 @@
 //
-//  ScrollProductCellViewModel.swift
+//  StyleCellViewModel.swift
 //  MusinsaAssignmentApp
 //
 //  Created by 김상혁 on 2022/07/17.
@@ -7,16 +7,16 @@
 
 import Foundation
 
-class ScrollProductCellViewModel: ViewModel {
+class StyleCellViewModel: ViewModel {
     
     struct Action {
-        let loadProduct = PublishRelay<Void>()
+        let loadStyle = PublishRelay<Void>()
         let cellTapped = PublishRelay<Void>()
     }
     
     struct State {
-        let loadedProductDTO = PublishRelay<ProductDTO>()
-        let tappedProduct = PublishRelay<Linkable>()
+        let loadedStyleDTO = PublishRelay<StyleEntity>()
+        let tappedProduct = PublishRelay<Tappable>()
     }
     
     let action = Action()
@@ -24,15 +24,16 @@ class ScrollProductCellViewModel: ViewModel {
     
     private let disposeBag = DisposeBag()
     
-    init(product: Product) {
-        self.action.loadProduct.bind { [weak self] in
-            self?.state.loadedProductDTO.accept(ProductDTO(product: product))
+    init(styleEntity: StyleEntity) {
+        self.action.loadStyle.bind { [weak self] in
+            self?.state.loadedStyleDTO.accept(styleEntity)
         }
         .disposed(by: disposeBag)
         
         self.action.cellTapped.bind { [weak self] in
-            self?.state.tappedProduct.accept(product)
+            self?.state.tappedProduct.accept(styleEntity)
         }
         .disposed(by: disposeBag)
     }
+    
 }

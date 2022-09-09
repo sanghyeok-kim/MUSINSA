@@ -16,7 +16,7 @@ final class GridProductSectionDataSourceViewModel: SectionDataSourceViewModel, V
     
     struct State {
         let itemCount = PublishRelay<Int>()
-        let tappedCell = PublishRelay<Linkable>()
+        let tappedCell = PublishRelay<Tappable>()
         let headerViewModel: HeaderViewModel?
         let footerViewModel: FooterViewModel?
     }
@@ -24,15 +24,15 @@ final class GridProductSectionDataSourceViewModel: SectionDataSourceViewModel, V
     let action = Action()
     let state: State
     
-    var sectionData: Entity.SectionData
+    var sectionEntity: SectionEntity
     private let disposeBag = DisposeBag()
     private var cellViewModels: [GridProductCellViewModel] = []
     
-    init(sectionData: Entity.SectionData) {
-        self.sectionData = sectionData
+    init(sectionEntity: SectionEntity) {
+        self.sectionEntity = sectionEntity
         
-        let headerViewModel = HeaderViewModel(header: sectionData.header)
-        let footerViewModel = FooterViewModel(footer: sectionData.footer)
+        let headerViewModel = HeaderViewModel(header: sectionEntity.header)
+        let footerViewModel = FooterViewModel(footer: sectionEntity.footer)
         state = State(headerViewModel: headerViewModel, footerViewModel: footerViewModel)
         
         headerViewModel?.action.seeAllButtonTapped
@@ -41,12 +41,12 @@ final class GridProductSectionDataSourceViewModel: SectionDataSourceViewModel, V
             })
             .disposed(by: disposeBag)
         
-        cellViewModels = sectionData.contents.products!.map { product in
-            GridProductCellViewModel(product: product)
-        }
+        cellViewModels = sectionEntity.contentsItems
+            .compactMap{ $0 as? ProductEntity }
+            .map { GridProductCellViewModel(productEntity: $0) }
         
         action.loadData.bind { [weak self] in
-            self?.state.itemCount.accept(sectionData.contents.products!.count)
+            self?.state.itemCount.accept(sectionEntity.contentsItemCount)
         }
         .disposed(by: disposeBag)
         
