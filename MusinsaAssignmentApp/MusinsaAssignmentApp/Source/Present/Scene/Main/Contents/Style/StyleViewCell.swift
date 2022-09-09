@@ -32,25 +32,25 @@ class StyleViewCell: UICollectionViewCell, View {
     override func prepareForReuse() {
         super.prepareForReuse()
         disposeBag = DisposeBag()
+        button.removeAction(identifiedBy: .cellTapped, for: .touchUpInside)
     }
     
     func bind(to viewModel: StyleCellViewModel) {
         defer { viewModel.action.loadStyle.accept(()) }
         
-        viewModel.state.loadedStyleDTO.bind { [weak self] styleDTO in
-            guard let thumbnailUrl = styleDTO.thumbnailUrl else { return }
+        viewModel.state.loadedStyleDTO.bind { [weak self] styleEntity in
+            guard let thumbnailUrl = styleEntity.thumbnailUrl else { return }
             self?.thumbnailImageView.setImageWithCaching(from: thumbnailUrl)
         }
         .disposed(by: disposeBag)
         
-        button.addAction(UIAction(handler: { _ in
+        button.addAction(UIAction(identifier: .cellTapped, handler: { _ in
             viewModel.action.cellTapped.accept(())
         }), for: .touchUpInside)
     }
     
     private func layout() {
-        addSubview(thumbnailImageView)
-        addSubview(button)
+        addSubviews([thumbnailImageView, button])
         
         thumbnailImageView.translatesAutoresizingMaskIntoConstraints = false
         thumbnailImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true

@@ -15,7 +15,7 @@ final class StyleSectionDataSourceViewModel: SectionDataSourceViewModel, ViewMod
     
     struct State {
         let itemCount = PublishRelay<Int>()
-        let tappedCell = PublishRelay<Linkable>()
+        let tappedCell = PublishRelay<Tappable>()
         let headerViewModel: HeaderViewModel?
         let footerViewModel: FooterViewModel?
     }
@@ -23,23 +23,23 @@ final class StyleSectionDataSourceViewModel: SectionDataSourceViewModel, ViewMod
     let action = Action()
     let state: State
     
-    var sectionData: Entity.SectionData
+    var sectionEntity: SectionEntity
     private let disposeBag = DisposeBag()
     private var cellViewModels: [StyleCellViewModel] = []
     
-    init(sectionData: Entity.SectionData) {
-        self.sectionData = sectionData
+    init(sectionEntity: SectionEntity) {
+        self.sectionEntity = sectionEntity
         
-        let headerViewModel = HeaderViewModel(header: sectionData.header)
-        let footerViewModel = FooterViewModel(footer: sectionData.footer)
+        let headerViewModel = HeaderViewModel(header: sectionEntity.header)
+        let footerViewModel = FooterViewModel(footer: sectionEntity.footer)
         state = State(headerViewModel: headerViewModel, footerViewModel: footerViewModel)
         
-        cellViewModels = sectionData.contents.styles!.map { style in
-            StyleCellViewModel(style: style)
-        }
+        cellViewModels = sectionEntity.contentsItems
+            .compactMap { $0 as? StyleEntity }
+            .map { StyleCellViewModel(styleEntity: $0) }
         
         action.loadData.bind { [weak self] in
-            self?.state.itemCount.accept(sectionData.contents.styles!.count)
+            self?.state.itemCount.accept(sectionEntity.contentsItemCount)
         }
         .disposed(by: disposeBag)
         
