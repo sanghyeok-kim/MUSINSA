@@ -9,7 +9,7 @@ import UIKit
 
 final class BannerViewCell: UICollectionViewCell, View {
     
-    private var disposeBag = DisposeBag()
+    private lazy var button = UIButton()
     
     private lazy var thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
@@ -44,22 +44,26 @@ final class BannerViewCell: UICollectionViewCell, View {
         stackView.axis = .vertical
         stackView.alignment = .leading
         stackView.spacing = 8
-        [titleLabel, descriptionLabel].forEach {
-            stackView.addArrangedSubview($0)
-        }
+        stackView.addArrangedSubviews([titleLabel, descriptionLabel])
         return stackView
     }()
     
+    private var disposeBag = DisposeBag()
+    
     func bind(to viewModel: BannerCellViewModel) {
-        viewModel.state.loadedBanner.bind { [weak self] bannerDTO in
-            guard let thumbnailUrl = bannerDTO.thumbnailUrl else { return }
+        viewModel.state.loadedBanner.bind { [weak self] bannerEntity in
+            guard let thumbnailUrl = bannerEntity.thumbnailUrl else { return }
             self?.thumbnailImageView.setImageWithCaching(from: thumbnailUrl)
 //            guard let linkUrl = bannerDTO.linkURL else { return }
-            self?.keywordLabel.text = bannerDTO.keyword
-            self?.titleLabel.text = bannerDTO.title
-            self?.descriptionLabel.text = bannerDTO.description
+            self?.keywordLabel.text = bannerEntity.keyword
+            self?.titleLabel.text = bannerEntity.title
+            self?.descriptionLabel.text = bannerEntity.description
         }
         .disposed(by: disposeBag)
+        
+        button.addAction(UIAction(identifier: .cellTapped, handler: { _ in
+            viewModel.action.cellTapped.accept(())
+        }), for: .touchUpInside)
         
         viewModel.action.loadBanner.accept(())
     }
@@ -77,12 +81,11 @@ final class BannerViewCell: UICollectionViewCell, View {
     override func prepareForReuse() {
         super.prepareForReuse()
         disposeBag = DisposeBag()
+        button.removeAction(identifiedBy: .cellTapped, for: .touchUpInside)
     }
     
     private func layout() {
-        addSubview(thumbnailImageView)
-        addSubview(keywordLabel)
-        addSubview(titleLabelStackView)
+        addSubviews([thumbnailImageView, keywordLabel, titleLabelStackView, button])
         
         thumbnailImageView.translatesAutoresizingMaskIntoConstraints = false
         thumbnailImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -97,6 +100,11 @@ final class BannerViewCell: UICollectionViewCell, View {
         titleLabelStackView.translatesAutoresizingMaskIntoConstraints = false
         titleLabelStackView.leadingAnchor.constraint(equalTo: thumbnailImageView.leadingAnchor, constant: 12).isActive = true
         titleLabelStackView.bottomAnchor.constraint(equalTo: thumbnailImageView.bottomAnchor, constant: -24).isActive = true
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        button.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        button.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        button.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
     }
 }
-

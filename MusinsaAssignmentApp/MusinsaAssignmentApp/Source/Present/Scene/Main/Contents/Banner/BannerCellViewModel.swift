@@ -15,7 +15,8 @@ class BannerCellViewModel: ViewModel {
     }
     
     struct State {
-        let loadedBanner = PublishRelay<BannerDTO>()
+        let loadedBanner = PublishRelay<BannerEntity>()
+        let tappedBanner = PublishRelay<Tappable>()
     }
     
     let action = Action()
@@ -23,13 +24,14 @@ class BannerCellViewModel: ViewModel {
     
     private let disposeBag = DisposeBag()
     
-    init(banner: Banner) {
+    init(bannerEntity: BannerEntity) {
         action.loadBanner.bind { [weak self] in
-            self?.state.loadedBanner.accept(BannerDTO(banner: banner))
+            self?.state.loadedBanner.accept(bannerEntity)
         }
         .disposed(by: disposeBag)
         
         action.cellTapped.bind { [weak self] in
+            self?.state.tappedBanner.accept(bannerEntity)
         }
         .disposed(by: disposeBag)
     }

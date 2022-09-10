@@ -9,7 +9,7 @@ import Foundation
 
 final class BannerSectionDataSourceViewModel: SectionDataSourceViewModel, ViewModel {
     
-    var sectionData: Entity.SectionData
+    var sectionEntity: SectionEntity
     
     struct Action {
         let loadData = PublishRelay<Void>()
@@ -17,6 +17,7 @@ final class BannerSectionDataSourceViewModel: SectionDataSourceViewModel, ViewMo
     
     struct State {
         let itemCount = PublishRelay<Int>()
+        let tappedCell = PublishRelay<Tappable>()
         var pageCountViewModel: PageCountSupplementaryViewModel?
     }
     
@@ -26,17 +27,24 @@ final class BannerSectionDataSourceViewModel: SectionDataSourceViewModel, ViewMo
     let action = Action()
     let state = State()
     
-    init(sectionData: Entity.SectionData) {
-        self.sectionData = sectionData
+    init(sectionEntity: SectionEntity) {
+        self.sectionEntity = sectionEntity
         
-        cellViewModels = sectionData.contents.banners!.map { banner in
-            BannerCellViewModel(banner: banner)
-        }
+        cellViewModels = sectionEntity.contentsItems
+            .compactMap{ $0 as? BannerEntity }
+            .map { BannerCellViewModel(bannerEntity: $0) }
         
         action.loadData.bind { [weak self] in
-            self?.state.itemCount.accept(sectionData.contents.banners!.count)
+            self?.state.itemCount.accept(sectionEntity.contentsItemCount)
         }
         .disposed(by: disposeBag)
+        
+        cellViewModels.forEach { cellViewModel in
+            cellViewModel.state.tappedBanner.bind { [weak self] banner in
+                self?.state.tappedCell.accept(banner)
+            }
+            .disposed(by: disposeBag)
+        }
     }
     
     func bindCellViewModel<T>(for cellView: T, at index: Int) where T : View {
