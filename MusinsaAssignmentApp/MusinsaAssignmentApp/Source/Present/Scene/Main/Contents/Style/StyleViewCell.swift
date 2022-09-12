@@ -8,7 +8,6 @@
 import UIKit
 
 class StyleViewCell: UICollectionViewCell, View {
-    
     private var disposeBag = DisposeBag()
     private lazy var button = UIButton()
     
@@ -38,7 +37,7 @@ class StyleViewCell: UICollectionViewCell, View {
     func bind(to viewModel: StyleCellViewModel) {
         defer { viewModel.action.loadStyle.accept(()) }
         
-        viewModel.state.loadedStyleDTO.bind { [weak self] styleEntity in
+        viewModel.state.loadedStyleEntity.bind { [weak self] styleEntity in
             guard let thumbnailUrl = styleEntity.thumbnailUrl else { return }
             self?.thumbnailImageView.setImageWithCaching(from: thumbnailUrl)
         }

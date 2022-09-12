@@ -53,10 +53,10 @@ final class HeaderView: UICollectionReusableView, View {
     func bind(to viewModel: HeaderViewModel) {
         defer { viewModel.action.loadData.accept(()) }
         
-        viewModel.state.loadedData.bind { [weak self] headerDTO in
-            self?.titleLabel.text = headerDTO.title
-            self?.iconImageView.isHidden = headerDTO.iconUrl == nil
-            if let iconUrl = headerDTO.iconUrl {
+        viewModel.state.loadedData.bind { [weak self] headerEntity in
+            self?.titleLabel.text = headerEntity.title
+            self?.iconImageView.isHidden = headerEntity.iconUrl == nil
+            if let iconUrl = headerEntity.iconUrl {
                 self?.iconImageView.setImageWithCaching(from: iconUrl)
             }
         }
