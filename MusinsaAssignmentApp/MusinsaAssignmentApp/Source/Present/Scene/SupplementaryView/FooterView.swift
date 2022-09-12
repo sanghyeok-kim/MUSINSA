@@ -9,12 +9,16 @@ import UIKit
 
 final class FooterView: UICollectionReusableView, View {
     
-    private lazy var button: UIButton = {
+    private lazy var seeMoreButton: UIButton = {
         let button = UIButton()
-        button.setTitleColor(UIColor.black, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        button.layer.borderColor = UIColor.systemGray.cgColor
-        button.layer.borderWidth = 2.0
+        var config = UIButton.Configuration.plain()
+        config.cornerStyle = .capsule
+        config.titleAlignment = .center
+        config.baseForegroundColor = .black
+        config.background.strokeWidth = 1 //borderWidth
+        config.background.strokeColor = .systemGray //borderColor
+        config.imagePadding = 3
+        button.configuration = config
         return button
     }()
     
@@ -24,11 +28,11 @@ final class FooterView: UICollectionReusableView, View {
         super.init(frame: frame)
         self.backgroundColor = .systemGray4
         
-        addSubview(button)
+        addSubview(seeMoreButton)
         
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        button.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        seeMoreButton.translatesAutoresizingMaskIntoConstraints = false
+        seeMoreButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        seeMoreButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
     
     @available(*, unavailable)
@@ -44,14 +48,31 @@ final class FooterView: UICollectionReusableView, View {
     func bind(to viewModel: FooterViewModel) {
         defer { viewModel.action.loadFooter.accept(()) }
         
-        viewModel.state.loadedFooter.bind { [weak self] footerDTO in
-            self?.button.setTitle(footerDTO.title, for: .normal)
+        viewModel.state.loadedFooter.bind { [weak self] footerEntity in
+            self?.seeMoreButton.setTitle(footerEntity.title, for: .normal)
             
-            if let iconURL = footerDTO.iconURL {
-                let buttonImage = UIImage(named: "pencil")
-                self?.button.setImage(buttonImage, for: .normal)
+            if let iconURL = footerEntity.iconURL {
+                ImageCacheManager.shared.fetchImage(from: iconURL) { [weak self] result in
+                    switch result {
+                    case .success(let image):
+                        let buttonImage = image?.resizedAspect(to: 20)
+                        self?.seeMoreButton.configuration?.image = buttonImage
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
             }
         }
         .disposed(by: disposeBag)
+        
+        viewModel.state.shouldSeeMoreButtonHidden
+            .bind { [weak self] bool in
+                self?.seeMoreButton.isHidden = bool
+            }
+            .disposed(by: disposeBag)
+        
+        seeMoreButton.addAction(UIAction(identifier: .seeMoreButtonTapped, handler: { [weak self] _ in
+            self?.viewModel?.action.seeMoreButtonTapped.accept(())
+        }), for: .touchUpInside)
     }
 }
