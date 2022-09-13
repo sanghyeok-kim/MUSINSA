@@ -54,7 +54,6 @@ final class BannerViewCell: UICollectionViewCell, View {
         viewModel.state.loadedBanner.bind { [weak self] bannerEntity in
             guard let thumbnailUrl = bannerEntity.thumbnailUrl else { return }
             self?.thumbnailImageView.setImageWithCaching(from: thumbnailUrl)
-//            guard let linkUrl = bannerDTO.linkURL else { return }
             self?.keywordLabel.text = bannerEntity.keyword
             self?.titleLabel.text = bannerEntity.title
             self?.descriptionLabel.text = bannerEntity.description

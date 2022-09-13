@@ -15,7 +15,7 @@ class ScrollProductCellViewModel: ViewModel {
     }
     
     struct State {
-        let loadedProductDTO = PublishRelay<ProductEntity>()
+        let loadedProductEntity = PublishRelay<ProductEntity>()
         let tappedProduct = PublishRelay<Tappable>()
     }
     
@@ -26,7 +26,7 @@ class ScrollProductCellViewModel: ViewModel {
     
     init(productEntity: ProductEntity) {
         self.action.loadProduct.bind { [weak self] in
-            self?.state.loadedProductDTO.accept(productEntity)
+            self?.state.loadedProductEntity.accept(productEntity)
         }
         .disposed(by: disposeBag)
         

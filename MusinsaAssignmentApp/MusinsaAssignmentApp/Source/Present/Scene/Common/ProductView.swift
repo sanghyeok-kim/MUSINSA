@@ -64,19 +64,19 @@ final class ProductView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with productDTO: ProductEntity) {
-        guard let thumbNailUrl = productDTO.thumbnailUrl else { return }
+    func configure(with productEntity: ProductEntity) {
+        guard let thumbNailUrl = productEntity.thumbnailUrl else { return }
         self.thumbnailImageView.setImageWithCaching(from: thumbNailUrl)
         
         //guard let linkUrl = product.linkURL else { return }
-        self.brandNameLabel.text = productDTO.brandName
+        self.brandNameLabel.text = productEntity.brandName
 //        if self.brandNameLabel.text == nil {
 //            self.brandNameLabel.text = ""
 //        }
-//        self.brandNameLabel.text?.append(productDTO.brandName)
-        self.priceLabel.text = productDTO.price
-        self.saleRateLabel.text = productDTO.saleRate
-        self.couponLabel.isHidden = productDTO.hasCoupon
+//        self.brandNameLabel.text?.append(productEntity.brandName)
+        self.priceLabel.text = productEntity.price
+        self.saleRateLabel.text = productEntity.saleRate
+        self.couponLabel.isHidden = productEntity.hasCoupon
     }
     
     private func layout() {

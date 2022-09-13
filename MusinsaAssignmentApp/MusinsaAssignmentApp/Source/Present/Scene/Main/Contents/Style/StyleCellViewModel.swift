@@ -15,7 +15,7 @@ class StyleCellViewModel: ViewModel {
     }
     
     struct State {
-        let loadedStyleDTO = PublishRelay<StyleEntity>()
+        let loadedStyleEntity = PublishRelay<StyleEntity>()
         let tappedProduct = PublishRelay<Tappable>()
     }
     
@@ -26,7 +26,7 @@ class StyleCellViewModel: ViewModel {
     
     init(styleEntity: StyleEntity) {
         self.action.loadStyle.bind { [weak self] in
-            self?.state.loadedStyleDTO.accept(styleEntity)
+            self?.state.loadedStyleEntity.accept(styleEntity)
         }
         .disposed(by: disposeBag)
         

@@ -33,7 +33,7 @@ final class ScrollProductViewCell: UICollectionViewCell, View {
     func bind(to viewModel: ScrollProductCellViewModel) {
         defer { viewModel.action.loadProduct.accept(()) }
         
-        viewModel.state.loadedProductDTO.bind { [weak self] productEntiy in
+        viewModel.state.loadedProductEntity.bind { [weak self] productEntiy in
             self?.productView.configure(with: productEntiy)
         }
         .disposed(by: disposeBag)
