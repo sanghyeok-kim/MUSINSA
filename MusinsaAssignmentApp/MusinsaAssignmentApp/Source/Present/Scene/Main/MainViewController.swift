@@ -3,14 +3,17 @@
 //  MusinsaAssignmentApp
 //
 //  Created by 김상혁 on 2022/07/14.
-//
 
 import UIKit
 
 class MainViewController: UIViewController, View {
+    
     private lazy var collectionViewDataSource = MainCollectionViewDataSource()
     private lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewCompositionalLayout(sectionProvider: collectionViewDataSource.sectionProvider)
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 30
+        let layout = UICollectionViewCompositionalLayout(sectionProvider: collectionViewDataSource.sectionProvider,
+                                                         configuration: config)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         collectionView.register(BannerViewCell.self, forCellWithReuseIdentifier: BannerViewCell.identifier)
@@ -30,9 +33,10 @@ class MainViewController: UIViewController, View {
         
         collectionView.dataSource = collectionViewDataSource
         collectionView.backgroundColor = .systemGray3
-        
         return collectionView
     }()
+    
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,12 +45,20 @@ class MainViewController: UIViewController, View {
     }
     
     func bind(to viewModel: MainViewModel) {
-        viewModel.state.loadedSectionViewModels
-            .bind { [weak self] sectionViewModels in
-                guard let self = self else { return }
-                self.collectionViewDataSource.appendSection(viewModels: sectionViewModels)
+        viewModel.state.loadedSectionDataSourceViewModels
+            .bind { [weak self] sectionDataSourceViewModels in
+                self?.collectionViewDataSource.append(sectionDataSourceViewModels)
 //                self.collectionView.reloadData()
             }
+            .disposed(by: disposeBag)
+        
+        viewModel.action.openURL.bind { url in
+            print(url)
+            UIApplication.shared.open(url)
+        }
+        .disposed(by: disposeBag)
+        
+//        collectionView.reloadItems(at: <#T##[IndexPath]#>)
     }
 }
 
