@@ -11,4 +11,8 @@ extension UIAction.Identifier {
     static var cellTapped: UIAction.Identifier {
         return UIAction.Identifier("\(String(describing: self))")
     }
+    
+    static var seeMoreButtonTapped: UIAction.Identifier {
+        return UIAction.Identifier("\(String(describing: self))")
+    }
 }
