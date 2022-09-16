@@ -13,7 +13,7 @@ final class MainCollectionViewDataSource: NSObject {
     
     func append(_ sectionDataSourceViewModels: [SectionDataSourceViewModel]) {
         sectionDataSourceViewModels.forEach { sectionDataSourceViewModel in
-            switch sectionDataSourceViewModel.sectionData.contents.type { //TODO: dot level 낮추기
+            switch sectionDataSourceViewModel.sectionEntity.contentsType {
             case .banner:
                 let sectionDataSource = BannerSectionDataSource()
                 sectionDataSource.viewModel = sectionDataSourceViewModel as? BannerSectionDataSourceViewModel
@@ -57,7 +57,10 @@ extension MainCollectionViewDataSource: UICollectionViewDataSource {
     
     //DataSource의 각 Section별 Item -> 여기서는 Item이 SectionDataSource를 의미
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let sectionDataSource = sectionDataSources[indexPath.section].dequeueReusableCell(collectionView, cellForItemAt: indexPath)
+        let sectionDataSource = sectionDataSources[indexPath.section].dequeueReusableCell(
+            collectionView,
+            cellForItemAt: indexPath
+        )
         return sectionDataSource
     }
     
