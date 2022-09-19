@@ -80,7 +80,6 @@ final class BannerViewCell: UICollectionViewCell, View {
     override func prepareForReuse() {
         super.prepareForReuse()
         disposeBag = DisposeBag()
-        button.removeAction(identifiedBy: .cellTapped, for: .touchUpInside)
     }
     
     private func layout() {

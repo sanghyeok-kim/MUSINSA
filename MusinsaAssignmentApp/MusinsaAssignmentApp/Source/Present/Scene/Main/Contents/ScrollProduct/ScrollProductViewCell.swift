@@ -27,7 +27,6 @@ final class ScrollProductViewCell: UICollectionViewCell, View {
     override func prepareForReuse() {
         super.prepareForReuse()
         disposeBag = DisposeBag()
-        button.removeAction(identifiedBy: .cellTapped, for: .touchUpInside)
     }
     
     func bind(to viewModel: ScrollProductCellViewModel) {
