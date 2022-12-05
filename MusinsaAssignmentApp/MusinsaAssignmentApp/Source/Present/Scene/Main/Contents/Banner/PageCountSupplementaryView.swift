@@ -34,12 +34,12 @@ final class PageCountSupplementaryView: UICollectionReusableView, View {
     
     func bind(to viewModel: PageCountSupplementaryViewModel) {
         viewModel.state.currentPageCount.bind { [weak self] count in
-            guard let self = self else { return }
+            
             
         }
         
         viewModel.state.maxPageCount.bind { [weak self] count in
-            guard let self = self else { return }
+            
             
         }
     }

@@ -14,12 +14,13 @@ final class MainViewModel: ViewModel {
     
     struct Action {
         let loadData = PublishRelay<Void>()
-        let openURL = PublishRelay<URL>()
     }
     
     struct State {
         let loadedData = PublishRelay<MusinsaEntity>()
         let loadedSectionDataSourceViewModels = PublishRelay<[SectionDataSourceViewModel]>()
+        let openURL = PublishRelay<URL>()
+        let reloadItems = PublishRelay<Range<Int>>()
     }
     
     let action = Action()
@@ -85,7 +86,14 @@ final class MainViewModel: ViewModel {
     private func bindCellTapped(to observable: PublishRelay<Tappable>) {
         observable.bind { [weak self] tappedCell in
             guard let url = tappedCell.linkUrl else { return }
-            self?.action.openURL.accept(url)
+            self?.state.openURL.accept(url)
+        }
+        .disposed(by: disposeBag)
+    }
+    
+    private func reloadItems(at observable: PublishRelay<Void>) {
+        observable.bind { [weak self] in
+            self?.state.reloadItems.accept(6..<8)
         }
         .disposed(by: disposeBag)
     }

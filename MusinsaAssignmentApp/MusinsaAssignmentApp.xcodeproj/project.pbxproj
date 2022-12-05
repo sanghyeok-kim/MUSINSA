@@ -48,11 +48,11 @@
 		1E677FEE288522B600C822EE /* StyleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E677FED288522B600C822EE /* StyleViewCell.swift */; };
 		1E677FF0288533F000C822EE /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E677FEF288533F000C822EE /* FooterView.swift */; };
 		1E6B475628B241E800865968 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6B475528B241E800865968 /* Entity.swift */; };
-		1E6B475928B242DC00865968 /* Extension+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6B475828B242DC00865968 /* Extension+Int.swift */; };
+		1E6B475928B242DC00865968 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6B475828B242DC00865968 /* Int+Extension.swift */; };
 		1E6B475B28B24DE000865968 /* RoundPaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6B475A28B24DE000865968 /* RoundPaddingLabel.swift */; };
-		1E6B475D28B301C400865968 /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6B475C28B301C400865968 /* Extension+UIImageView.swift */; };
-		1E6B476128B3551B00865968 /* Extension+UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6B476028B3551B00865968 /* Extension+UICollectionViewCell.swift */; };
-		1E6B476328B3579500865968 /* Extension+UICollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6B476228B3579500865968 /* Extension+UICollectionReusableView.swift */; };
+		1E6B475D28B301C400865968 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6B475C28B301C400865968 /* UIImageView+Extension.swift */; };
+		1E6B476128B3551B00865968 /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6B476028B3551B00865968 /* UICollectionViewCell+Extension.swift */; };
+		1E6B476328B3579500865968 /* UICollectionReusableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6B476228B3579500865968 /* UICollectionReusableView+Extension.swift */; };
 		1E6B476528B36C9E00865968 /* PageCountSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6B476428B36C9E00865968 /* PageCountSupplementaryView.swift */; };
 		1E6B476728B3894F00865968 /* MVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6B476628B3894F00865968 /* MVVM.swift */; };
 		1E6B476928B3A10200865968 /* PageCountSupplementaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6B476828B3A10200865968 /* PageCountSupplementaryViewModel.swift */; };
@@ -65,7 +65,13 @@
 		1E6B47B628BB438200865968 /* ScrollProductSectionDataSourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6B47B528BB438200865968 /* ScrollProductSectionDataSourceViewModel.swift */; };
 		1E6B47B828BB43BA00865968 /* StyleSectionDataSourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6B47B728BB43BA00865968 /* StyleSectionDataSourceViewModel.swift */; };
 		1E6B47BB28BB45C900865968 /* SectionDataSourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6B47BA28BB45C900865968 /* SectionDataSourceViewModel.swift */; };
-		1ECB2AED28C88A09005EB626 /* Extension+UIAction_Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECB2AEC28C88A09005EB626 /* Extension+UIAction_Identifier.swift */; };
+		1ECB2AED28C88A09005EB626 /* UIAction_Identifier+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECB2AEC28C88A09005EB626 /* UIAction_Identifier+Extension.swift */; };
+		1ECB2B2F28C8CB65005EB626 /* UIVew+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECB2B2E28C8CB65005EB626 /* UIVew+Extension.swift */; };
+		1ECB2B3128C8CB95005EB626 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECB2B3028C8CB95005EB626 /* UIStackView+Extension.swift */; };
+		1EE0C1D128CF017000A79DF4 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE0C1D028CF017000A79DF4 /* UIImage+Extension.swift */; };
+		883E64C983135C36863DCE15 /* Pods_MusinsaAssignmentAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3E952A5CD5DD8B3F3A72E4 /* Pods_MusinsaAssignmentAppTests.framework */; };
+		89141DCEFB3E5C1262164427 /* Pods_MusinsaAssignmentApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5BD4F245B59CD2A7CAB602 /* Pods_MusinsaAssignmentApp.framework */; };
+		BECBA12A3420AE464169BF35 /* Pods_MusinsaAssignmentApp_MusinsaAssignmentAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A33FC753DD8540DDDED6C1 /* Pods_MusinsaAssignmentApp_MusinsaAssignmentAppUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +92,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D35067908BD048D377F904F /* Pods-MusinsaAssignmentAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusinsaAssignmentAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MusinsaAssignmentAppTests/Pods-MusinsaAssignmentAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1E3D4B1828BF281D008945B0 /* RoundPaddingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundPaddingButton.swift; sourceTree = "<group>"; };
 		1E3D4B1A28BF3760008945B0 /* HeaderBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBindable.swift; sourceTree = "<group>"; };
 		1E3D4B1C28BF376A008945B0 /* FooterBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterBindable.swift; sourceTree = "<group>"; };
@@ -131,11 +138,11 @@
 		1E677FED288522B600C822EE /* StyleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleViewCell.swift; sourceTree = "<group>"; };
 		1E677FEF288533F000C822EE /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		1E6B475528B241E800865968 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
-		1E6B475828B242DC00865968 /* Extension+Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Int.swift"; sourceTree = "<group>"; };
+		1E6B475828B242DC00865968 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		1E6B475A28B24DE000865968 /* RoundPaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundPaddingLabel.swift; sourceTree = "<group>"; };
-		1E6B475C28B301C400865968 /* Extension+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
-		1E6B476028B3551B00865968 /* Extension+UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UICollectionViewCell.swift"; sourceTree = "<group>"; };
-		1E6B476228B3579500865968 /* Extension+UICollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UICollectionReusableView.swift"; sourceTree = "<group>"; };
+		1E6B475C28B301C400865968 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		1E6B476028B3551B00865968 /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
+		1E6B476228B3579500865968 /* UICollectionReusableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionReusableView+Extension.swift"; sourceTree = "<group>"; };
 		1E6B476428B36C9E00865968 /* PageCountSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCountSupplementaryView.swift; sourceTree = "<group>"; };
 		1E6B476628B3894F00865968 /* MVVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVM.swift; sourceTree = "<group>"; };
 		1E6B476828B3A10200865968 /* PageCountSupplementaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCountSupplementaryViewModel.swift; sourceTree = "<group>"; };
@@ -148,7 +155,18 @@
 		1E6B47B528BB438200865968 /* ScrollProductSectionDataSourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollProductSectionDataSourceViewModel.swift; sourceTree = "<group>"; };
 		1E6B47B728BB43BA00865968 /* StyleSectionDataSourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSectionDataSourceViewModel.swift; sourceTree = "<group>"; };
 		1E6B47BA28BB45C900865968 /* SectionDataSourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDataSourceViewModel.swift; sourceTree = "<group>"; };
-		1ECB2AEC28C88A09005EB626 /* Extension+UIAction_Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIAction_Identifier.swift"; sourceTree = "<group>"; };
+		1ECB2AEC28C88A09005EB626 /* UIAction_Identifier+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAction_Identifier+Extension.swift"; sourceTree = "<group>"; };
+		1ECB2B2E28C8CB65005EB626 /* UIVew+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVew+Extension.swift"; sourceTree = "<group>"; };
+		1ECB2B3028C8CB95005EB626 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
+		1EE0C1D028CF017000A79DF4 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		3A3E952A5CD5DD8B3F3A72E4 /* Pods_MusinsaAssignmentAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusinsaAssignmentAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D4667ECB5E21AA66884F432 /* Pods-MusinsaAssignmentApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusinsaAssignmentApp.debug.xcconfig"; path = "Target Support Files/Pods-MusinsaAssignmentApp/Pods-MusinsaAssignmentApp.debug.xcconfig"; sourceTree = "<group>"; };
+		67A33FC753DD8540DDDED6C1 /* Pods_MusinsaAssignmentApp_MusinsaAssignmentAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusinsaAssignmentApp_MusinsaAssignmentAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D5BD4F245B59CD2A7CAB602 /* Pods_MusinsaAssignmentApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusinsaAssignmentApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		70202D606F0F9F60F303C068 /* Pods-MusinsaAssignmentApp-MusinsaAssignmentAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusinsaAssignmentApp-MusinsaAssignmentAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-MusinsaAssignmentApp-MusinsaAssignmentAppUITests/Pods-MusinsaAssignmentApp-MusinsaAssignmentAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7C9033D1E9F1AEC6114A2777 /* Pods-MusinsaAssignmentAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusinsaAssignmentAppTests.release.xcconfig"; path = "Target Support Files/Pods-MusinsaAssignmentAppTests/Pods-MusinsaAssignmentAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		9FA19B46BFB10FB3403808B6 /* Pods-MusinsaAssignmentApp-MusinsaAssignmentAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusinsaAssignmentApp-MusinsaAssignmentAppUITests.release.xcconfig"; path = "Target Support Files/Pods-MusinsaAssignmentApp-MusinsaAssignmentAppUITests/Pods-MusinsaAssignmentApp-MusinsaAssignmentAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FD45425BAFE71C1BF21A2928 /* Pods-MusinsaAssignmentApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusinsaAssignmentApp.release.xcconfig"; path = "Target Support Files/Pods-MusinsaAssignmentApp/Pods-MusinsaAssignmentApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89141DCEFB3E5C1262164427 /* Pods_MusinsaAssignmentApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +182,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				883E64C983135C36863DCE15 /* Pods_MusinsaAssignmentAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,12 +190,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BECBA12A3420AE464169BF35 /* Pods_MusinsaAssignmentApp_MusinsaAssignmentAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AB0DA6DCA684B5BCAA24E9D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5D4667ECB5E21AA66884F432 /* Pods-MusinsaAssignmentApp.debug.xcconfig */,
+				FD45425BAFE71C1BF21A2928 /* Pods-MusinsaAssignmentApp.release.xcconfig */,
+				70202D606F0F9F60F303C068 /* Pods-MusinsaAssignmentApp-MusinsaAssignmentAppUITests.debug.xcconfig */,
+				9FA19B46BFB10FB3403808B6 /* Pods-MusinsaAssignmentApp-MusinsaAssignmentAppUITests.release.xcconfig */,
+				1D35067908BD048D377F904F /* Pods-MusinsaAssignmentAppTests.debug.xcconfig */,
+				7C9033D1E9F1AEC6114A2777 /* Pods-MusinsaAssignmentAppTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		1E3D4B1728BEFD2A008945B0 /* SupplementaryView */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +302,8 @@
 				1E677F52287FF75B00C822EE /* MusinsaAssignmentAppTests */,
 				1E677F5C287FF75B00C822EE /* MusinsaAssignmentAppUITests */,
 				1E677F3A287FF75A00C822EE /* Products */,
+				0AB0DA6DCA684B5BCAA24E9D /* Pods */,
+				5034FE90431046E7DF10C241 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -439,11 +475,14 @@
 		1E6B475728B242D000865968 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				1E6B475828B242DC00865968 /* Extension+Int.swift */,
-				1E6B475C28B301C400865968 /* Extension+UIImageView.swift */,
-				1E6B476028B3551B00865968 /* Extension+UICollectionViewCell.swift */,
-				1E6B476228B3579500865968 /* Extension+UICollectionReusableView.swift */,
-				1ECB2AEC28C88A09005EB626 /* Extension+UIAction_Identifier.swift */,
+				1E6B475828B242DC00865968 /* Int+Extension.swift */,
+				1E6B475C28B301C400865968 /* UIImageView+Extension.swift */,
+				1E6B476028B3551B00865968 /* UICollectionViewCell+Extension.swift */,
+				1E6B476228B3579500865968 /* UICollectionReusableView+Extension.swift */,
+				1ECB2AEC28C88A09005EB626 /* UIAction_Identifier+Extension.swift */,
+				1ECB2B2E28C8CB65005EB626 /* UIVew+Extension.swift */,
+				1ECB2B3028C8CB95005EB626 /* UIStackView+Extension.swift */,
+				1EE0C1D028CF017000A79DF4 /* UIImage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -485,6 +524,16 @@
 			path = Contents;
 			sourceTree = "<group>";
 		};
+		5034FE90431046E7DF10C241 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D5BD4F245B59CD2A7CAB602 /* Pods_MusinsaAssignmentApp.framework */,
+				67A33FC753DD8540DDDED6C1 /* Pods_MusinsaAssignmentApp_MusinsaAssignmentAppUITests.framework */,
+				3A3E952A5CD5DD8B3F3A72E4 /* Pods_MusinsaAssignmentAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -492,9 +541,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E677F63287FF75B00C822EE /* Build configuration list for PBXNativeTarget "MusinsaAssignmentApp" */;
 			buildPhases = (
+				F2AC4BEC5E8CB8CADA7B47B1 /* [CP] Check Pods Manifest.lock */,
 				1E677F35287FF75A00C822EE /* Sources */,
 				1E677F36287FF75A00C822EE /* Frameworks */,
 				1E677F37287FF75A00C822EE /* Resources */,
+				6EC14475E5B1D05BEC0C6554 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -509,6 +560,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E677F66287FF75B00C822EE /* Build configuration list for PBXNativeTarget "MusinsaAssignmentAppTests" */;
 			buildPhases = (
+				836E660FC3D290D738CAEFAD /* [CP] Check Pods Manifest.lock */,
 				1E677F4B287FF75B00C822EE /* Sources */,
 				1E677F4C287FF75B00C822EE /* Frameworks */,
 				1E677F4D287FF75B00C822EE /* Resources */,
@@ -527,9 +579,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E677F69287FF75B00C822EE /* Build configuration list for PBXNativeTarget "MusinsaAssignmentAppUITests" */;
 			buildPhases = (
+				CF1EF222076C4EE6D2694C45 /* [CP] Check Pods Manifest.lock */,
 				1E677F55287FF75B00C822EE /* Sources */,
 				1E677F56287FF75B00C822EE /* Frameworks */,
 				1E677F57287FF75B00C822EE /* Resources */,
+				1FFBAD0FA45AA8272EF64CC2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -611,6 +665,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1FFBAD0FA45AA8272EF64CC2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MusinsaAssignmentApp-MusinsaAssignmentAppUITests/Pods-MusinsaAssignmentApp-MusinsaAssignmentAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MusinsaAssignmentApp-MusinsaAssignmentAppUITests/Pods-MusinsaAssignmentApp-MusinsaAssignmentAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MusinsaAssignmentApp-MusinsaAssignmentAppUITests/Pods-MusinsaAssignmentApp-MusinsaAssignmentAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6EC14475E5B1D05BEC0C6554 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MusinsaAssignmentApp/Pods-MusinsaAssignmentApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MusinsaAssignmentApp/Pods-MusinsaAssignmentApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MusinsaAssignmentApp/Pods-MusinsaAssignmentApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		836E660FC3D290D738CAEFAD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MusinsaAssignmentAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF1EF222076C4EE6D2694C45 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MusinsaAssignmentApp-MusinsaAssignmentAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2AC4BEC5E8CB8CADA7B47B1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MusinsaAssignmentApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1E677F35287FF75A00C822EE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -624,6 +781,7 @@
 				1E3D4B2128BF3F03008945B0 /* FooterUsable.swift in Sources */,
 				1E677F7A28804B7300C822EE /* HeaderView.swift in Sources */,
 				1E677FDA2884556800C822EE /* GridProductSectionDataSource.swift in Sources */,
+				1ECB2B2F28C8CB65005EB626 /* UIVew+Extension.swift in Sources */,
 				1E677FEA2885228F00C822EE /* GridProductViewCell.swift in Sources */,
 				1E3D4B1D28BF376A008945B0 /* FooterBindable.swift in Sources */,
 				1E677F7E28804BD800C822EE /* BaseRepository.swift in Sources */,
@@ -641,7 +799,7 @@
 				1E3D4B3128C4EC35008945B0 /* JSONconverter.swift in Sources */,
 				1E677F922883FB4D00C822EE /* ImageCacheManager.swift in Sources */,
 				1E677FE6288455DC00C822EE /* StyleCellViewModel.swift in Sources */,
-				1E6B476128B3551B00865968 /* Extension+UICollectionViewCell.swift in Sources */,
+				1E6B476128B3551B00865968 /* UICollectionViewCell+Extension.swift in Sources */,
 				1E6B477228B3A57B00865968 /* SectionDataSource.swift in Sources */,
 				1E677FD82884552300C822EE /* BannerSectionDataSource.swift in Sources */,
 				1E677F8228813FA400C822EE /* DTO.swift in Sources */,
@@ -653,11 +811,13 @@
 				1E677FEE288522B600C822EE /* StyleViewCell.swift in Sources */,
 				1E677F3F287FF75A00C822EE /* SceneDelegate.swift in Sources */,
 				1E6B47B428BB431D00865968 /* BannerSectionDataSourceViewModel.swift in Sources */,
-				1E6B475D28B301C400865968 /* Extension+UIImageView.swift in Sources */,
+				1E6B475D28B301C400865968 /* UIImageView+Extension.swift in Sources */,
 				1E677FF0288533F000C822EE /* FooterView.swift in Sources */,
-				1E6B476328B3579500865968 /* Extension+UICollectionReusableView.swift in Sources */,
-				1ECB2AED28C88A09005EB626 /* Extension+UIAction_Identifier.swift in Sources */,
+				1E6B476328B3579500865968 /* UICollectionReusableView+Extension.swift in Sources */,
+				1ECB2AED28C88A09005EB626 /* UIAction_Identifier+Extension.swift in Sources */,
 				1E6B476B28B3A17000865968 /* ProductView.swift in Sources */,
+				1EE0C1D128CF017000A79DF4 /* UIImage+Extension.swift in Sources */,
+				1ECB2B3128C8CB95005EB626 /* UIStackView+Extension.swift in Sources */,
 				1E3D4B1928BF281D008945B0 /* RoundPaddingButton.swift in Sources */,
 				1E6B476928B3A10200865968 /* PageCountSupplementaryViewModel.swift in Sources */,
 				1E6B476E28B3A38000865968 /* HeaderViewModel.swift in Sources */,
@@ -667,7 +827,7 @@
 				1E677FE4288455CE00C822EE /* ScrollProductCellViewModel.swift in Sources */,
 				1E677FE82884562600C822EE /* BannerViewCell.swift in Sources */,
 				1E677FE2288455C200C822EE /* GridProductCellViewModel.swift in Sources */,
-				1E6B475928B242DC00865968 /* Extension+Int.swift in Sources */,
+				1E6B475928B242DC00865968 /* Int+Extension.swift in Sources */,
 				1E677F8028804BF600C822EE /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -832,12 +992,14 @@
 		};
 		1E677F64287FF75B00C822EE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D4667ECB5E21AA66884F432 /* Pods-MusinsaAssignmentApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MPN6WL3W3U;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MusinsaAssignmentApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -852,6 +1014,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sanghyeok.test.MusinsaAssignmentApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -860,12 +1023,14 @@
 		};
 		1E677F65287FF75B00C822EE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD45425BAFE71C1BF21A2928 /* Pods-MusinsaAssignmentApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MPN6WL3W3U;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MusinsaAssignmentApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -880,6 +1045,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sanghyeok.test.MusinsaAssignmentApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -888,6 +1054,7 @@
 		};
 		1E677F67287FF75B00C822EE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D35067908BD048D377F904F /* Pods-MusinsaAssignmentAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -908,6 +1075,7 @@
 		};
 		1E677F68287FF75B00C822EE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C9033D1E9F1AEC6114A2777 /* Pods-MusinsaAssignmentAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -928,6 +1096,7 @@
 		};
 		1E677F6A287FF75B00C822EE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70202D606F0F9F60F303C068 /* Pods-MusinsaAssignmentApp-MusinsaAssignmentAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -946,6 +1115,7 @@
 		};
 		1E677F6B287FF75B00C822EE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FA19B46BFB10FB3403808B6 /* Pods-MusinsaAssignmentApp-MusinsaAssignmentAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

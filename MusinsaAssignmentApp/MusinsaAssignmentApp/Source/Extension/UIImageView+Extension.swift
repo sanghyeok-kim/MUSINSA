@@ -12,7 +12,9 @@ extension UIImageView {
         ImageCacheManager.shared.fetchImage(from: url) { result in
             switch result {
             case .success(let image):
-                DispatchQueue.main.async { self.image = image }
+                DispatchQueue.main.async {
+                    self.image = image
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }
